@@ -26,3 +26,4 @@ def create_shop_list():
   print_shop_list(shop_list)
 
 create_shop_list()
+# Добавление

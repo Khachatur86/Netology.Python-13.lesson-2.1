@@ -25,7 +25,7 @@ def create_shop_list():
   shop_list = get_shop_list_by_dishes(dishes, person_count)
   print_shop_list(shop_list)
 
-create_shop_list()
+
 # Создание словаря аналогичного исходному в лекции 1.5
 #Создадим пустой словарь, в качестве ключей будут наименования блюд. А в качестве значения - список.
 #Список будет состоять из словаря, в котором будет отражаться информация - имя ингредиента, количество, мера веса.
@@ -40,7 +40,18 @@ create_shop_list()
 def read_receipts():
   cook_book = {}
   with open("reciepts.txt", encoding="utf-8") as f:
-    for line in f:#
-      dish = line.lower().strip()
+    for line in f:#Итерирование по строкам
+      dish = line.lower().strip()#присвоение значения строки наименованию блюда
       ingredients_quantity = int(f.readline().strip())
       dishes = []
+      for i in range(ingredients_quantity):
+        dishes_list = f.readline().split("|").strip()
+        dishes_dict = {'ingridient_name': dishes_list[0], 'quantity':dishes_list[1], 'measure': dishes_list[2]}
+        dishes.append(dishes_dict)
+      f.readline()
+      cook_book[dish] = dishes
+  return cook_book
+
+cook_book = read_receipts()
+create_shop_list()
+        

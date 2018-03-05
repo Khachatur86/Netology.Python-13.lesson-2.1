@@ -46,7 +46,7 @@ def read_receipts():
       dishes = []
       for i in range(ingredients_quantity):
         dishes_list = f.readline().split("|").strip()
-        dishes_dict = {'ingridient_name': dishes_list[0], 'quantity': dishes_list[1], 'measure': dishes_list[2]}
+        dishes_dict = {'ingridient_name': dishes_list[0].strip(), 'quantity': dishes_list[1].strip(), 'measure': dishes_list[2].strip()}
         dishes.append(dishes_dict)
       f.readline()
       cook_book[dish] = dishes

@@ -1,4 +1,4 @@
-
+# Исправление
 def get_shop_list_by_dishes(dishes, person_count, cook_book):
   shop_list = {}
   for dish in dishes:
